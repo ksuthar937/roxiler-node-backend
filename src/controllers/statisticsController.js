@@ -4,6 +4,10 @@ const getStats = async (req, res) => {
   try {
     const { month } = req.query;
 
+    if (!month) {
+      return res.status(400).json({ message: "Month is required" });
+    }
+
     const selectedMonthData = await statisticsService.getMonthData(month);
 
     const stats = await statisticsService.calculateStats(selectedMonthData);
