@@ -47,6 +47,17 @@ const barChart = async (data) => {
 
 const pieChart = async (data) => {
   try {
+    const categories = {};
+
+    data.forEach((item) => {
+      if (categories[item.category]) {
+        categories[item.category]++;
+      } else {
+        categories[item.category] = 1;
+      }
+    });
+
+    return categories;
   } catch (error) {
     throw error;
   }

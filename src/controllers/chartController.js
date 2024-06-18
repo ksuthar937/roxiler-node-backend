@@ -10,7 +10,9 @@ const getBarChartData = async (req, res) => {
     }
 
     const selectedMonthData = await statisticsService.getMonthData(month);
+
     const data = await chartService.barChart(selectedMonthData);
+
     res.status(200).json(data);
   } catch (error) {
     res.status(500).json({
@@ -28,7 +30,9 @@ const getPieChartData = async (req, res) => {
     }
 
     const selectedMonthData = await statisticsService.getMonthData(month);
+
     const data = await chartService.pieChart(selectedMonthData);
+
     res.status(200).json(data);
   } catch (error) {
     res.status(500).json({
