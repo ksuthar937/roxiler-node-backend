@@ -1,25 +1,20 @@
 const express = require("express");
 const colors = require("colors");
 const dotenv = require("dotenv");
+const cors = require("cors");
+
 const dbConfig = require("./db/config");
-const productRoute = require("./src/routes/productsRoute");
-const transactionRoute = require("./src/routes/transactionRoute");
-const statisticsRoute = require("./src/routes/statisticsRoute");
-const chartRoute = require("./src/routes/chartRoute");
+const routes = require("./src/routes/index");
 
 const app = express();
+
 dotenv.config();
 
 app.use(express.json());
+app.use(cors());
 
-app.use("/api/v1", productRoute);
-app.use("/api/v1", transactionRoute);
-app.use("/api/v1", statisticsRoute);
-app.use("/api/v1", chartRoute);
-
-// app.get("/test", (req, res) => {
-//   res.send("Test route");
-// });
+//All defined routes
+app.use("/api/v1", routes);
 
 //Database connection
 dbConfig();

@@ -4,7 +4,7 @@ const { fetchDataAndSeedDB } = require("../controllers/productsController");
 
 const router = express.Router();
 
-/**Initialize the database*/
-router.get("/products", fetchDataAndSeedDB);
+/**Initialize the database route*/
+router.get("/", fetchDataAndSeedDB);
 
 module.exports = router;

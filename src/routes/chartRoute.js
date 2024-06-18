@@ -7,10 +7,10 @@ const {
 
 const router = express.Router();
 
-/**Bar chart*/
-router.get("/chart/bar", getBarChartData);
+/**Bar chart Route*/
+router.get("/bar", getBarChartData);
 
-/**Pie chart*/
-router.get("/chart/pie", getPieChartData);
+/**Pie chart Route*/
+router.get("/pie", getPieChartData);
 
 module.exports = router;
