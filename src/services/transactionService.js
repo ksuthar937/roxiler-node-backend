@@ -15,7 +15,6 @@ const allTransactions = async ({ pageNo, perPage, search, month }) => {
     if (month) {
       const monthNumber =
         new Date(Date.parse(month + " 1, 2021")).getMonth() + 1;
-      console.log(monthNumber);
       query.$expr = { $eq: [{ $month: "$dateOfSale" }, monthNumber] };
     }
 
